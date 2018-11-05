@@ -1,0 +1,68 @@
+﻿\documentclass[11pt,a4paper]{jsarticle}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{latexsym}
+\begin{document}
+
+\newtheorem{theo}{Thm.}[section]
+\newtheorem{defi}{Def.}[section]
+\newtheorem{lemm}{Lem.}[section]
+\newtheorem{prop}{Prop.}[section]
+\newtheorem{ex}{Ex.}[section]
+\newtheorem{prf}{Prf.}
+
+\section{はじめに}
+この資料は11月2日分の発表資料をまとめたものです。
+次回の発表時、この資料の補足から始めたいと思います。
+\section{準同型}
+
+\begin{defi}{\bf 準同型写像} \\
+群$(G,\circ)$から群$(G',\ast)$への写像$f:G \rightarrow G'$が任意の$a,b \in G$に対して,$f(a\circ b)=f(a)\ast f(b)$を満たすとき,$fをGからG'$への{\bf 準同型写像}という.
+\end{defi}
+
+\begin{prop}
+$f:G \rightarrow G'$を群の準同型写像,群$G,G'$の単位元をそれぞれ$1,1'$とする.このとき,以下が成り立つ.d\\
+(1) $f(1)=1'$\\
+(2) $f(a^{-1})=f(a)^{-1}$\\
+(3) $a^{n}=1$ならば$f(a)^{n}=1'$.\  特に,${\mathrm ord}(f(a))	\vert {\mathrm ord}(a)$\\
+(4) $fが単射ならば,{\mathrm ord}(f(a))={\mathrm ord}(a)$
+\end{prop}
+
+\begin{proof} 
+(1) $1=1^2$より,$f(1)=f(1^2)=f(1)f(1)$であり,両辺に$f(1)^{-1}$をかけて,$1'=f(1).$ \\
+(2) $aa^{-1}=1$より,(1)より$f(a)f(a^{-1})=f(1)=1'$.よって,逆元の一意性から$f(a)^{-1}=f(a^{-1}).$ \\
+(3) $f(a)^n=f(a^n)=f(1)=1'.$ \\
+(4) $f$が単射であれば,$f(a)^n=1' \Longrightarrow f(a^n)=f(1) \Longrightarrow a^n=1$で(3)の逆が成り立つ.
+\end{proof}
+
+\begin{defi}{\bf 群の同型} \\
+$群Gから群G'への全単射な準同型写像f:G \rightarrow G'が存在するとき,GとG'は{\bf 同型}といい,G \simeq G'と書く.また全単射な準同型写像fを{\bf 同型写像}といい,G \xrightarrow{\sim} G'と書く.同型は群全体に対する同値関係を与え,この同値関係による同値類を{\bf 同型類}という.$
+\end{defi}
+
+\begin{defi}{\bf 準同型写像の核と像} \\
+$f:G \rightarrow G'$を群の準同型写像,群$G,G'$の単位元をそれぞれ$1,1'$とする.$G'$の単位元に移るGの元全体$${\rm Ker}(f)=\{g\in G | f(g)=1' \}$$を$f$の{\bf 核}という.また,$Gから移ってくるG'$の元全体$${\rm Im}(f)=\{f(g) \in G' |g\in G \}$$を$f$の{\bf 像}という.
+\end{defi}
+\begin{prop}
+$f:G \rightarrow G'$を群の準同型写像,群$G,G'$の単位元をそれぞれ$1,1'$とする.このとき,以下が成り立つ.\\
+(1) ${\rm Im}(f) \leq G'$ \\
+(2) ${\rm Ker}(f) \lhd G$ \\
+(3) $f:単射 \Longleftrightarrow {\rm Ker}(f)=\{1 \}$
+\end{prop}
+\begin{proof}
+(1) $f(g),f(h) \in {\rm Ker}(f)に対して,f(g)f(h)=f(gh) \in {\rm Im}(f),f(g)^{-1}=f(g^{-1}) \in {\rm Im}(f)であるから,部分群の判定条件より{\rm Im}(f) \leq G'.$ \\
+(2) $(1)と同様に,g,h \in {\rm Ker}(f)に対して,f(g)=f(h)=1'であり,f(gh)=f(g)f(h)=1',f(g^{-1})=f(g)^{-1}=(1')^{-1}=1'よりgh,g^{-1} \in {\rm Ker}(f).{\rm Ker}(f) \lhd Gであることは,x \in G に対して,f(x^{-1}gx)=f(x^{-1})f(g)f(x)=f(x)^{-1} \cdot 1' \cdot f(x)=1'よりx^{-1}gx \in {\rm Ker}(f).よって{\rm Ker}(f) \lhd G.$ \\
+(3) $(\Rightarrow)\   {\rm Prop}1.1.よりf(1)=1'であるから,ｆが単射ならば{\rm Ker}(f)=\{1 \}.$ \\
+$(\Leftarrow)\  {\rm Ker}(f)=\{1 \}とする.x,y \in Gに対して,f(x)=f(y)\Longrightarrow f(x)f(y)^{-1}=1' \Longrightarrow f(xy^{-1})=1' \Longrightarrow xy^{-1} =1 \Longrightarrow x=y.$
+\end{proof}
+
+\section{準同型定理}
+
+\begin{theo}{\bf 準同型定理} \\
+$群Gから群G'への準同型写像f:G\rightarrow G'に対して,N={\rm Ker}(f)$とすれば,$$\overline{f}:G/{\rm Ker}(f)\rightarrow {\rm Im}(f),xN \mapsto f(x)$$は同型写像となる.すなわち,剰余群G/{\rm Ker}(f)とfによるGの像{\rm Im}(f)は同型となる.$$\overline{f}:G/{\rm Ker}(f) \xrightarrow{\sim} {\rm Im}(f).$$
+\end{theo}
+
+\begin{proof}
+$1'をG'の単位元とする.{\rm Prop.}1.2. よりN={\rm Ker}(f) \lhd GでG/Nは群である.xN=yN \Longleftrightarrow y^{-1}x \in N \Longleftrightarrow f(y^{-1}x) =1' \Longleftrightarrow f(y)^{-1}f(x) =1' \Longleftrightarrow f(x) = f(y)であるため、\overline{f}は{\rm well-defined}かつ全単射である.\overline{f}が準同型であることは,\overline{f}(xN \cdot yN)=\overline{f}(xyN)=f(xy)=f(x)f(y)=\overline{f}(xN)\overline{f}(yN)よりわかる.$
+\end{proof}
+
+\end{document}
