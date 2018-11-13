@@ -1,0 +1,68 @@
+﻿\documentclass[11pt,a4paper]{jsarticle}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{latexsym}
+\begin{document}
+
+\newtheorem{theo}{Thm.}[section]
+\newtheorem{defi}{Def.}[section]
+\newtheorem{lemm}{Lem.}[section]
+\newtheorem{prop}{Prop.}[section]
+\newtheorem{ex}{Ex.}[section]
+\newtheorem{prf}{Prf.}
+
+\section{準同型定理と同型定理}
+
+まず，復習として準同型定理を以下に示す．
+\begin{theo}{\bf 準同型定理} \\
+$群Gから群G'への準同型写像f:G\rightarrow G'に対して,N={\rm Ker}(f)$とすれば,$$\overline{f}:G/{\rm Ker}(f)\rightarrow {\rm Im}(f),xN \mapsto f(x)$$は同型写像となる.すなわち,剰余群G/{\rm Ker}(f)とfによるGの像{\rm Im}(f)は同型となる.$$\overline{f}:G/{\rm Ker}(f) \xrightarrow{\sim} {\rm Im}(f).$$
+\end{theo}
+次に標準全射を定義しておく.
+\begin{defi}{\bf 標準全射} \\
+$N\lhd G$に対して，全準同型写像$$f:G \rightarrow G/N，g\mapsto gN$$
+を{\bf 標準全射}という．
+\end{defi}
+
+次に3つの同型定理を示す．
+\begin{theo}{\bf 第1同型定理} \\
+$群Gから群G'への全射準同型写像f:G\rightarrow G'と正規部分群N'\lhd G'に対して,N:=f^{-1}(N')\lhd G$かつ,$$G/N\simeq G'/N'.$$
+\end{theo}
+
+\begin{proof}
+$fと標準全射\varphi との合成\varphi \circ f:G\rightarrow G' \rightarrow G'/N'$は全射同型であり，${\mathrm Ker}(\varphi \circ f) = \{x \in G | (\varphi \circ f)(x) = N' \}であるから，x\in {\mathrm Ker}(\varphi \circ f) \Longleftrightarrow \varphi (f(x))=N' \Longleftrightarrow f(x) \in N' \Longleftrightarrow x \in N.よって，{\mathrm Ker}(\varphi \circ f)=N \lhd Gで準同型定理より\overline{\varphi \circ f}:G/N \xrightarrow{\sim} G'/N'.$
+\end{proof}
+\begin{lemm}
+$S,T,U\subset Gに対して，(ST)U=S(TU)，(ST)^{-1}=T^{-1}S^{-1}.$
+\end{lemm}
+
+\begin{proof}
+$Gが群であるから，(ST)U=\{(st)u\  |\  s\in S，t \in T，u \in U \}=\{s(tu)\  |\  s\in S，t \in T，u \in U \}=S(TU)，(ST)^{-1}=\{(st)^{-1}\  |\  s\in S，t \in T，u \in U \}=\{t^{-1}s^{-1}\  |\  s\in S，t \in T，u \in U \}=T^{-1}S^{-1}.$
+\end{proof}
+
+\begin{lemm}
+(1)$H,K \leq Gに対して，HK\leq G \Longleftrightarrow HK=KH.$ \\
+(2)$H\leq GとN\lhd Gに対して，HN=NH\leq G.$
+\end{lemm}
+
+\begin{proof}
+(1)$H,K\leq GよりH=H^{-1},K=K^{-1},HH=H,KK=K．(\Rightarrow)HK\leq GならばHK=(HK)^{-1}=K^{-1}H^{-1}=KH.(\Leftarrow)HK=KHならば，(HK)(HK)=H(KH)K=H(HK)K=(HH)(KK)=HK.よって，任意のhk.h'k'\in HKに対して，(hk)(h'k')，(hk)^{-1} \in HK.部分群の判定条件より，HK\leq G.$ \\
+(2)$N\lhd Gより，h^{-1} Nh =N(\forall h \in H)であるから，hN = Nh (\forall h \in H)よりHN=NH.よって(1)よりHN\leq G.$
+\end{proof}
+
+\begin{theo}{\bf 第2同型定理} \\
+$群Gの部分群H \leq GとN \lhd Gに対して，$ $$H/(H\cap N) \simeq HN/N.$$
+\end{theo}
+
+\begin{proof}
+${\rm Lem.1.2.}(2)より，HN\leq G.また，N\lhd GよりN\leq HN.全射準同型f:H \rightarrow HN/N ，h \mapsto hN に対して，{\mathrm Ker}(f)=\{x \in H\  |\  xN=N \}であり，x \in {\mathrm Ker}(f) \Longleftrightarrow x \in H \cap Nより，{\mathrm Ker}(f)=H\cap N \lhd H.よって，準同型定理より，\overline{f}:H/(H\cap N) \xrightarrow{\sim} HN/N.$
+\end{proof}
+
+\begin{theo}{\bf 第3同型定理} \\
+$群G とN_1,N_2 \lhd G，N_2\leq N_1に対して，$ $$(G/N_2)/(N_1/N_2)\simeq G/N_1.$$
+\end{theo}
+
+\begin{proof}
+$f:G/N_2 \rightarrow G/N_1，xN_2 \mapsto xN_1は{\rm well-defined}かつ全射準同型となる．{\rm well-defined}であることは，N_2 \leq N_1 から，xN_2=yN_2 \Longleftrightarrow y^{-1}x \in N_2 \leq N_1 \Rightarrow y^{-1}x \in N_1 \Rightarrow (y^{-1}x)N_1 = N_1 \Rightarrow xN_1 =yN_1のようにわかる．準同型であることは，f(xN_2)f(yN_2)より分かり，全射もよい．また，{\mathrm Ker}(f)=\{xN_2 \in G/N_2 \  |\  f(xN_2)=N_1 \} = \{xN_2 \in G/N_2 \  |\  xN_1 =N_1 \} = \{xN_2 \in G/N_2\  |\  x \in N_1 \} = N_1/N_2 \lhd G/N_2 であるから，準同型定理より\overline{f}:(G/N_2)/(N_1/N_2) \xrightarrow{\sim} G/N_1.$
+\end{proof}
+
+\end{document}
